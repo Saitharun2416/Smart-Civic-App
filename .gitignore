@@ -20,10 +20,3 @@ venv/
 .venv/
 __pycache__/
 *.pyc
-
-# Temporary E2E test files
-web/fail_*.png
-web/test_complaint.png
-web/*.xlsx
-# Standalone web project
-web/
