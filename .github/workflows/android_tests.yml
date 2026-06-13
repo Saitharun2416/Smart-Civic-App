@@ -1,4 +1,4 @@
-name: Android CI and Test Run
+name: Android CI and E2E Test Run
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest # macOS is recommended for emulator runner for hardware acceleration
 
     steps:
     - name: Checkout Code
@@ -26,15 +26,25 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Build Debug APK
-      run: ./gradlew assembleDebug
-
-    - name: Run Unit Tests
+    - name: Run Local Unit Tests
       run: ./gradlew testDebugUnitTest
 
-    - name: Upload Test Report Artifact
+    - name: Run E2E Instrumented Tests (Emulator)
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 29
+        script: ./gradlew connectedAndroidTest
+
+    - name: Upload Unit Test Reports
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: Android-UnitTest-Report
         path: app/build/reports/tests/testDebugUnitTest/
+
+    - name: Upload E2E Instrumented Test Reports
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: Android-E2E-InstrumentedTest-Report
+        path: app/build/reports/androidTests/connected/
