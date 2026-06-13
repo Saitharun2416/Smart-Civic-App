@@ -346,13 +346,14 @@ finally:
         print("Driver closed.")
 
 # Generate Excel Report
-report_path = r"C:\Users\DELL\OneDrive\Documents\smart_civic\web\test_report.xlsx"
+script_dir = os.path.dirname(os.path.abspath(__file__))
+report_path = os.path.join(script_dir, "test_report.xlsx")
 df = pd.DataFrame(results)
 try:
     df.to_excel(report_path, index=False)
     print(f"E2E Test completed. Excel report saved to: {report_path}")
 except PermissionError:
-    alt_report_path = r"C:\Users\DELL\OneDrive\Documents\smart_civic\web\test_report_new.xlsx"
+    alt_report_path = os.path.join(script_dir, "test_report_new.xlsx")
     print(f"Permission denied for {report_path} (it may be open in Excel). Trying to save to {alt_report_path} instead.")
     try:
         df.to_excel(alt_report_path, index=False)
