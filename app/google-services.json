@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1084976579634",
+    "project_id": "smart-civic-governance",
+    "storage_bucket": "smart-civic-governance.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084976579634:android:727eff0b3f292dde78a82b",
+        "android_client_info": {
+          "package_name": "com.example.smartcivic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU4LG0rDp_da_sAaox5nUL46oUVGnZlyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

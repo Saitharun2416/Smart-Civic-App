@@ -1,0 +1,28 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Python Virtual Environment
+test_env/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Temporary E2E test files
+web/fail_*.png
+web/test_complaint.png
+web/*.xlsx
+
