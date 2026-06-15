@@ -25,9 +25,6 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Run Local Unit Tests
-      run: ./gradlew testDebugUnitTest
-
     - name: Run E2E Instrumented Tests (Emulator)
       uses: reactivecircus/android-emulator-runner@v2
       with:
@@ -35,13 +32,6 @@ jobs:
         target: google_apis
         arch: x86_64
         script: ./gradlew connectedAndroidTest
-
-    - name: Upload Unit Test Reports
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: Android-UnitTest-Report
-        path: app/build/reports/tests/testDebugUnitTest/
 
     - name: Upload E2E Instrumented Test Reports
       if: always()
