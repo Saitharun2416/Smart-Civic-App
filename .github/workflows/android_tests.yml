@@ -2,9 +2,8 @@ name: Android CI and E2E Test Run
 
 on:
   push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+
 
 jobs:
   build-and-test:
